@@ -1,8 +1,8 @@
 ﻿// ADS-B_Extractor.cpp : Defines the entry point for the application.
 //
 
-#include "ADS-B_Extractor.h"
-#include "Extractor.h"
+#include "ADS-B_Reader.h"
+#include "Reader.h"
 
 int main()
 {//				 0x00000000FFFFFF  0b00100

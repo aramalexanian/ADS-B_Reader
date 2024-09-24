@@ -1,4 +1,4 @@
-#include "Extractor.h"
+#include "Reader.h"
 
 extract::Extractor::Extractor(uint64_t code_1, uint64_t code_2) {
 	this->code_1 = code_1;

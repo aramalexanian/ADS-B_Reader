@@ -11,7 +11,7 @@ endif()
 
 project ("ADS-B_Extractor")
 
-add_executable (ADS-B_Extractor "ADS-B_Extractor.cpp" "ADS-B_Extractor.h" "Extractor.cpp" "Extractor.h")
+add_executable (ADS-B_Extractor "ADS-B_Reader.cpp" "ADS-B_Reader.h" "Reader.cpp" "Reader.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET ADS-B_Extractor PROPERTY CXX_STANDARD 20)
