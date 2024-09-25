@@ -9,12 +9,15 @@ int main()
 	char code[] = "8D4840D6202CC371C32CE0576098";
 	int64_t code_1 = 0x8D4840D6202CC3;
 	int64_t code_2 = 0x71C32CE0576098;
-	extract::Extractor E(code_1, code_2);
+	read::Reader E(code_1, code_2);
 	std::cout << "DF: " << (int)E.DownlinkFormat() << std::endl;
+	std::cout << E.Mode() << std::endl;
 	std::cout << "SP: " << (int)E.TrasnponderCapability() << std::endl;
+	std::cout << E.CapabilityMessage() << std::endl;
 	std::cout << "ICAO: " << std::hex << std::uppercase << E.IcaoAircraftAddress() << std::endl;
 	std::cout << "ME: " << std::hex << std::uppercase << E.MessageExtendedSquitter() << std::endl;
 	std::cout << "Type: " << (int)E.TypeCode() << std::endl;
+	std::cout << E.TypeCodeMessage() << std::endl;
 	std::cout << "PI: " << E.ParityInteerrogatorId() << std::endl;
 	return 0;
 }
