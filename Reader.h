@@ -22,5 +22,8 @@ namespace read {
 		std::string Mode();
 		std::string CapabilityMessage();
 		std::string TypeCodeMessage();
+		std::string decode();
+		std::string decodeModeS(int format);
+		char addChar(int num);
 	};
 }

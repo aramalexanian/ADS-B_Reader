@@ -100,3 +100,44 @@ std::string read::Reader::CapabilityMessage() {
 	}
 	return str;
 }
+
+std::string read::Reader::decode() {
+	std::string str = "";
+	int format = DownlinkFormat();
+	switch (format) {
+	case 17:
+		str = decodeModeS(format);
+		break;
+	}
+	return str;
+}
+
+std::string read::Reader::decodeModeS(int format) {
+	uint64_t tempCode = MessageExtendedSquitter();
+	std::string str = "";
+	int TC = TypeCode();
+	switch (TC) {
+	case 1: case 2: case 3: case 4:
+		while (tempCode > 0) {
+			str = addChar(tempCode & 0x3F) + str;
+			tempCode >>= 6;
+		}
+		break;
+	case 9: case 10: case 11: case 12: case 13: case 14: case 15: case 16: case 17: case 18:
+		while (tempCode > 0) {
+
+		}
+		break;
+	}
+	return str;
+}
+
+char read::Reader::addChar(int num) {
+	if (num > 0 && num < 26) {
+		return (char)(num + 64);
+	}
+	else if (num > 47 && num < 58) {
+		return (num - 48) + '0';
+	}
+	return '_';
+}
